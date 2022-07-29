@@ -6,11 +6,11 @@ import Note from "./Note";
 
 function App(){
 
-    return <div>
+    return (<div>
         <Header />
             <Note />
             <Footer />
-    </div>
+    </div>)
 }
 
 
