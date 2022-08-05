@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 
 ReactDOM.render(
   <div className="container">
-    <h1>0</h1>
-    <button>+</button>
+   <App />
   </div>,
   document.getElementById("root")
 );
