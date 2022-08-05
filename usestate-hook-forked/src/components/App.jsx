@@ -1,25 +1,25 @@
-import React ,{useStage} from "react";
+import React ,{useState} from "react";
 
-
-function increace(){
-  setCount( count + 1);
-}
-
-
-function decreace(){
- 
-  setCount(count - 1);
-}
 
 
 function App() {
-  const [count,setCount] = useStage(0);
+
+  const[count,setCount] = useState(0);
+  function decreace(){
+ 
+    setCount(count - 1);
+  }
+
+  function increace(){
+    setCount( count + 1);
+   }
   return (
-  <div >
-    {}
+  <div className="container">
+    
     <h1>{count}</h1>
     <button onClick={increace}>+</button>
     <button onClick={decreace}>-</button>
+    
   </div>
   );
 }
