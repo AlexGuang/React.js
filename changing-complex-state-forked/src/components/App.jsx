@@ -6,8 +6,7 @@ function App() {
   lName:""
  });
 function setFnames(event){
-  const name = event.target.name;
-  const value = event.target.value;
+  const{name,value}= event.target;
   setFname((prepData)=>{
     if(name === "fName"){
       return({
