@@ -33,11 +33,13 @@ function setFnames(event){
           name="fName"
           placeholder="First Name"
           onChange={setFnames}
+          value = {fullName.fName}
         />
         <input
           name="lName"
           placeholder="Last Name"
           onChange={setFnames}
+          value = {fullName.lName}
            />
         <button>Submit</button>
       </form>
