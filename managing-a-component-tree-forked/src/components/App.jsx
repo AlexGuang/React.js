@@ -15,6 +15,15 @@ function App() {
     });
     setInputText("");
   }
+  function deleteItem(id){
+    setItems((predata)=>{
+      return(
+        predata.filter((value,index)=>{
+         return(index !== id) ;
+        })
+      )
+    })
+  }
 
   return (
     <div className="container">
@@ -29,9 +38,16 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(todoItem => (
-            <ToDoItem item = {todoItem}
-            key= {items.indexOf(todoItem)} />
+          {items.map((todoItem,index) => (
+            <ToDoItem 
+            item = {todoItem}
+            key= {index}
+            id ={index}
+            clickChange= {deleteItem}
+
+            />
+            
+            
           ))}
         </ul>
       </div>

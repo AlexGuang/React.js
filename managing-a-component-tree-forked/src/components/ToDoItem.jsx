@@ -1,20 +1,19 @@
-import React ,{useState} from "react";
+import React  from "react";
 
 function ToDoItem (props){
-const[isClicked , setIsClicked] = useState(true);
+//const[isClicked , setIsClicked] = useState(false);
 
-console.log(isClicked);
-function handleClick(event){
-    setIsClicked(current =>!current);
-    console.log(isClicked);
 
-    event.target.style.textDecoration = isClicked?"line-through":"";
+function handleClick(){
+    props.clickChange(props.id);
 }
+    
 
 
-return<li
- 
+
+return<li  
  onClick = {handleClick}
+ id ={props.id}
  >{props.item}</li>
 
 }
