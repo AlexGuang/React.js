@@ -9,12 +9,14 @@ function App() {
   function handleChange(event) {
     const newValue = event.target.value;
     setInputText(newValue);
+    console.log("InPUT IS: "+inputText);
   }
 
   function addItem() {
     setItems(prevItems => {
       return [...prevItems, inputText];
     });
+    console.log(items);
     setInputText("");
   }
 
@@ -31,7 +33,11 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea />
+      <InputArea 
+        handleChange={handleChange}
+        addItem = {addItem}
+        inputText={inputText}
+      />
       <div>
         <ul>
           {items.map((todoItem, index) => (
