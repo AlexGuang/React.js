@@ -8,21 +8,31 @@ function CreateArea(props) {
   });
 
   function onInput(event){
-    let newData ;
-    if(event.target.name ==="title"){
-      setTextinput((prep)=>{
-     
-     newData = prep;
-     newData.title = event.target.value
-    return newData})}
-    else if(event.target.name==="content"){
-      setTextinput((prep)=>{
-     
-        newData = prep;
-        newData.content = event.target.value
-       return newData})}
-       console.log(textInput)
-    }
+    const{name,value} = event.target ;
+
+    setTextinput((prep)=>{
+      return({
+        ...prep,
+        [name] : value
+      })
+    })}
+
+
+    // if(name ==="title"){
+    //   setTextinput((prep)=>{
+    //   return{
+    //     title:value,
+    //     content:prep.content      
+    // } })}
+    // else if(name==="content"){
+    //   setTextinput((prep)=>{
+            
+    //    return {
+    //     title:prep.title,
+    //     content:value
+    //    }})}
+    //    console.log(textInput)
+    // }
 
   return (
     <div>
@@ -35,15 +45,15 @@ function CreateArea(props) {
         name="content" placeholder="Take a note..." rows="3" value = {textInput.content}  />
         <button onClick = {(event)=>{
         props.onAdd(textInput);
-        event.preventDefault();
-        textInput = {
+       event.preventDefault();
+        setTextinput({
           title:"",
           content:""
-        }}
+        })}
         }>Add</button>
       </form>
     </div>
   );
 }
 
-export default CreateArea;
+export default CreateArea ;

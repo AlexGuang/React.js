@@ -18,10 +18,17 @@ console.log("items:"+items)
 function deleteItem(id){
   setItems(
     (prep)=>{
-      prep.filter(
-        (item,index)=>index !== id)
+      return(prep.filter(
+        (item,index)=>index !== id))
     }
   )
+}
+function deleteItems(id) {
+  setItems(prevItems => {
+    return prevItems.filter((item, index) => {
+      return index !== id;
+    });
+  });
 }
   return (
     <div>
@@ -29,8 +36,8 @@ function deleteItem(id){
       <CreateArea 
         onAdd={onAdd}
       />
-      <Note key={1} title="Note title" content="Note content" />
-      {items.map((item,index)=>{
+     
+      {items?.map((item,index)=>{
      return   <Note key={index}  id = {index} title={item.title} content={item.content}
      onDelete={deleteItem} />
       })}
